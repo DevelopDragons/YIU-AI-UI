@@ -1,12 +1,19 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { colors } from "../../assets/styles/colors";
-import main_background_img from "../../assets/images/main_background_img.jpeg";
-import yiuInfo from "../../assets/data/yiu_info";
-import yiuAiInfo from "../../assets/data/yiu_ai_info";
+import TitleBgImg from "../../assets/images/page_title_bg_img.jpg";
 import { useResponsive } from "../../hooks/ResponsiveContext";
 
-const MainPage = (): React.ReactElement => {
+interface TitleProps {
+  backgroundImage: string; // 배경 이미지
+  title: string; // 제목
+}
+
+const PageHeader = ({
+  backgroundImage,
+  title,
+}: TitleProps): React.ReactElement => {
+  // 반응형 화면
   const { isMobile, isNotMobile, isTablet, isDesktopOrLaptop } =
     useResponsive();
 
@@ -15,9 +22,9 @@ const MainPage = (): React.ReactElement => {
       <div
         css={css({
           position: "relative", // 자식 div의 위치를 절대적으로 설정할 수 있게
-          height: 400,
+          height: 300,
           width: "100%",
-          backgroundImage: `url(${main_background_img})`,
+          backgroundImage: `url(${backgroundImage ?? TitleBgImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         })}
@@ -34,25 +41,18 @@ const MainPage = (): React.ReactElement => {
             justifyContent: "center", // 텍스트를 아래로 정렬
             gap: 10,
             color: colors.gray.white,
-            paddingLeft: isMobile ? "5%" : "15%",
+            paddingLeft: isMobile ? 0 : "15%",
             backgroundColor: "rgba(0, 0, 0, 0.2)",
           })}
         >
           <div
             css={css({
-              fontSize: 60,
-              fontFamily: "Arvo Bold",
-            })}
-          >
-            {yiuInfo.name_en}
-          </div>
-          <div
-            css={css({
-              fontSize: 40,
+              fontSize: isMobile ? 50 : 70,
               fontWeight: 700,
+              textAlign: isMobile ? "center" : "start",
             })}
           >
-            {yiuAiInfo.name_en}
+            {title}
           </div>
         </div>
       </div>
@@ -60,4 +60,4 @@ const MainPage = (): React.ReactElement => {
   );
 };
 
-export default MainPage;
+export default PageHeader;

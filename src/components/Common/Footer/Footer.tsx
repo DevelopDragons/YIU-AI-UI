@@ -7,12 +7,11 @@ import { colors } from "../../../assets/styles/colors";
 import YIU_emblem from "../../../assets/images/YIU_emblem.jpg";
 import { useNavigate } from "react-router-dom";
 import yiuAiInfo from "../../../assets/data/yiu_ai_info";
-import { useMediaQuery } from "react-responsive";
+import { useResponsive } from "../../../hooks/ResponsiveContext";
 
 const Footer: React.FC = () => {
-  const isDesktopOrLaptop = useMediaQuery({ minWidth: 992 });
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const { isMobile, isNotMobile, isTablet, isDesktopOrLaptop } =
+    useResponsive();
 
   const navigate = useNavigate();
 

@@ -1,14 +1,51 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { colors } from "../../assets/styles/colors";
+import Title from "../../components/Text/Title";
+import H10 from "../../components/Gap/H10";
+import yiuAiInfo from "../../assets/data/yiu_ai_info";
+import EmailIcon from "@mui/icons-material/Email";
 
 const ContactPage = (): React.ReactElement => {
   return (
     <div>
-      {" "}
+      <Title title="연락처 및 오시는 길" />
+      {/* 학부사무실 정보 */}
       <div
         css={css({
-          width: 800,
+          display: "flex",
+          flexDirection: "column",
+          gap: 10,
+          marginTop: 30,
+          marginBottom: 50,
+        })}
+      >
+        <div
+          css={css({
+            fontWeight: 700,
+            fontSize: 20,
+            color: colors.yiu.green,
+          })}
+        >
+          학부사무실
+        </div>
+
+        <div
+          css={css({
+            display: "flex",
+            flexDirection: "column",
+            gap: 5,
+            fontsize: 15,
+          })}
+        >
+          <span>{yiuAiInfo.address}</span>
+          <span>{yiuAiInfo.tel}</span>
+          <span>{yiuAiInfo.email}</span>
+        </div>
+      </div>
+      <div
+        css={css({
+          // width: 800,
           height: 600,
         })}
       >
