@@ -42,7 +42,7 @@ const PageHeader = ({
             gap: 10,
             color: colors.gray.white,
             paddingLeft: isMobile ? 0 : "15%",
-            backgroundColor: "rgba(0, 0, 0, 0.2)",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
           })}
         >
           <div

@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { colors } from "../../../assets/styles/colors";
 import yiuInfo from "../../../assets/data/yiu_info";
 import { Menu, MenuItem } from "@mui/material";
-import navItems from "../../../models/menu";
+import { navItems } from "../../../models/menu";
 import DropdownMenu from "./DropdownMenu";
 
 type HeaderProps = {

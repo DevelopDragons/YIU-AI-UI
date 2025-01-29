@@ -43,14 +43,19 @@ const SideMenu: React.FC<{ menuItem: NavItem }> = ({ menuItem }) => {
           <div
             key={`${subItem.label}-${index}`}
             css={css({
+              width: 150,
               padding: 10,
               marginLeft: 10,
               cursor: "pointer",
               color: isActive ? colors.yiu.green : colors.text.black, // 활성화된 메뉴의 색상
+              backgroundColor: isActive
+                ? colors.gray.lightGray
+                : colors.gray.white,
               fontWeight: isActive ? 700 : 400, // 활성화된 메뉴의 글씨 두께
               ":hover": {
                 color: colors.yiu.green,
                 fontWeight: 700,
+                backgroundColor: colors.gray.lightGray,
                 transition: "all 0.2s",
               },
             })}

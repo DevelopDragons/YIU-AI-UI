@@ -8,7 +8,7 @@ export interface SubMenuItem {
   link: string;
 }
 
-const navItems: NavItem[] = [
+export const navItems: NavItem[] = [
   {
     label: "학부소개",
     subMenu: [
@@ -48,5 +48,3 @@ const navItems: NavItem[] = [
     ],
   },
 ];
-
-export default navItems;

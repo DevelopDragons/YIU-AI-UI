@@ -2,8 +2,8 @@
 import { css } from "@emotion/react";
 import { colors } from "../../assets/styles/colors";
 
-const News = (): React.ReactElement => {
-  return <div>학부소식 대표</div>;
+const Research = (): React.ReactElement => {
+  return <div>교육/연구 대표</div>;
 };
 
-export default News;
+export default Research;

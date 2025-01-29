@@ -2,10 +2,10 @@
 import { css } from "@emotion/react";
 import { colors } from "../../assets/styles/colors";
 import SideMenu from "../../components/Menu/SideMenu";
-import navItems from "../../models/menu";
+import { navItems } from "../../models/menu";
 import { Outlet } from "react-router-dom";
 import PageHeader from "../../components/Text/PageHeader";
-import TitleBgImg from "../../assets/images/page_title_bg_img.jpg";
+import TitleBgImg from "../../assets/images/PageHeader/major.jpg";
 import { useResponsive } from "../../hooks/ResponsiveContext";
 
 const Faculty = (): React.ReactElement => {
@@ -18,6 +18,8 @@ const Faculty = (): React.ReactElement => {
         css={css({
           display: "flex", // Flexbox를 사용하여 사이드바와 메인 콘텐츠를 나눔
           padding: "5%",
+          maxWidth: 1200,
+          margin: "0 auto",
           // minHeight: "100vh", // 화면을 꽉 채우도록 설정
         })}
       >

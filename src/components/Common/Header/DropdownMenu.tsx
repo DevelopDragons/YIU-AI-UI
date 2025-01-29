@@ -38,10 +38,10 @@ const DropdownMenu: React.FC<NavItem> = ({ label, subMenu }) => {
           border: "none",
           cursor: "pointer",
           fontSize: 18,
-          fontWeight: 800,
+          fontWeight: 700,
           color: colors.text.black,
           ":hover": {
-            fontWeight: 700,
+            // fontWeight: 800,
           },
         })}
       >
@@ -90,6 +90,8 @@ const DropdownMenu: React.FC<NavItem> = ({ label, subMenu }) => {
                   whiteSpace: "nowrap",
                   textAlign: "left",
                   ":hover": {
+                    fontWeight: 800,
+                    color: colors.yiu.green,
                     backgroundColor: colors.gray.lightGray,
                   },
                 })}

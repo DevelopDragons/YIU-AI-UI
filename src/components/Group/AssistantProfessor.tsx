@@ -4,7 +4,7 @@ import { colors } from "../../assets/styles/colors";
 import TitleBgImg from "../../assets/images/page_title_bg_img.jpg";
 import { useResponsive } from "../../hooks/ResponsiveContext";
 import { Member, ProfessorType } from "../../assets/data/temp_professor";
-import altUser from "../../assets/images/user.webp";
+import altImg from "../../assets/images/alt_professor.jpg";
 
 // Member 인터페이스를 props로 받아오도록 설정
 interface ProfessorProps {
@@ -22,12 +22,12 @@ const AssistantProfessor = ({ item }: ProfessorProps): React.ReactElement => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "start",
         gap: 20,
       })}
     >
       <img
-        src={item.image.length == 0 ? altUser : item.image}
+        src={item.image.length == 0 ? altImg : item.image}
         // src={boss}
         css={css({
           width: 180,
@@ -37,8 +37,10 @@ const AssistantProfessor = ({ item }: ProfessorProps): React.ReactElement => {
       />
       <div
         css={css({
+          width: 180,
           fontsize: 17,
           color: colors.gray.darkGray,
+          textAlign: "center",
           fontWeight: 700,
         })}
       >
