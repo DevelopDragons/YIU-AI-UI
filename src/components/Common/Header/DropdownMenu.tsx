@@ -17,7 +17,7 @@ const fadeIn = keyframes`
 `;
 
 // DropdownMenu 컴포넌트
-const DropdownMenu: React.FC<NavItem> = ({ label, subMenu }) => {
+const DropdownMenu: React.FC<NavItem> = ({ label, link, subMenu }) => {
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
 
@@ -41,9 +41,12 @@ const DropdownMenu: React.FC<NavItem> = ({ label, subMenu }) => {
           fontWeight: 700,
           color: colors.text.black,
           ":hover": {
-            // fontWeight: 800,
+            fontWeight: 800,
           },
         })}
+        onClick={() => {
+          if(link) navigate(link);
+        }}
       >
         {label}
       </button>

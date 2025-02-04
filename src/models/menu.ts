@@ -1,5 +1,6 @@
 export interface NavItem {
   label: string; // 상위 메뉴 이름
+  link?: string;
   subMenu: SubMenuItem[]; // 모든 항목은 객체 형태로 link 포함
 }
 
@@ -13,9 +14,9 @@ export const navItems: NavItem[] = [
     label: "학부소개",
     subMenu: [
       { label: "학부장 인사말", link: "/faculty/greetings" },
-      { label: "교수소개", link: "/faculty/professor" },
-      { label: "조교소개", link: "/faculty/assistant-professor" },
-      { label: "학생회소개", link: "/faculty/student-council" },
+      { label: "교수 소개", link: "/faculty/professor" },
+      { label: "조교 소개", link: "/faculty/assistant-professor" },
+      { label: "학생회 소개", link: "/faculty/student-council" },
       { label: "연락처 및 오시는 길", link: "/faculty/contact" },
     ],
   },
@@ -38,7 +39,9 @@ export const navItems: NavItem[] = [
   },
   {
     label: "학부소식",
-    subMenu: [{ label: "학부소식", link: "/news" }],
+    link: "/news",
+    subMenu: [],
+    // subMenu: [{ label: "학부소식", link: "/news" }],
   },
   {
     label: "입학정보",

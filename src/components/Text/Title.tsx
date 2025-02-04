@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 import { colors } from "../../assets/styles/colors";
 import TitleBgImg from "../../assets/images/page_title_bg_img.jpg";
 import { useResponsive } from "../../hooks/ResponsiveContext";
+import { border5 } from "../../assets/styles/borderLine";
 
 interface TitleProps {
   title: string; // 제목
@@ -13,8 +14,6 @@ const Title = ({ title }: TitleProps): React.ReactElement => {
   const { isMobile, isNotMobile, isTablet, isDesktopOrLaptop } =
     useResponsive();
 
-  const border = `5px solid ${colors.gray.brightGray}`;
-
   return (
     <div>
       <div
@@ -24,8 +23,8 @@ const Title = ({ title }: TitleProps): React.ReactElement => {
           color: colors.yiu.green,
           paddingTop: 10,
           paddingBottom: 10,
-          borderTop: border,
-          borderBottom: border,
+          borderTop: border5,
+          borderBottom: border5,
         })}
       >
         {title}

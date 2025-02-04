@@ -6,7 +6,7 @@ import {
   fullTimeMembers,
   notFullTimeMembers,
   retiredMembers,
-} from "../../assets/data/temp_professor";
+} from "../../assets/data/temp/temp_professor";
 import Professor from "../../components/Group/Professor";
 import { professorGrid } from "./styles";
 

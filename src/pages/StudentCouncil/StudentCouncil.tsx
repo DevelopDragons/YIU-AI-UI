@@ -4,10 +4,10 @@ import { colors } from "../../assets/styles/colors";
 import Title from "../../components/Text/Title";
 import thumbnail from "../../assets/images/council_thumbnail.jpeg";
 import people from "../../assets/images/council_people.jpeg";
-import { temp_council } from "../../models/council";
+import { temp_council } from "../../assets/data/temp/temp_council";
 import SectionTitle from "../../components/Text/SectionTitle";
 import H20 from "../../components/Gap/H20";
-import { tempCouncilEvents } from "../../assets/data/temp_council";
+import { tempCouncilEvents } from "../../assets/data/temp/temp_council";
 import { useResponsive } from "../../hooks/ResponsiveContext";
 
 const StudentCouncilPage = (): React.ReactElement => {

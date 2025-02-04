@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 import { colors } from "../../assets/styles/colors";
 import TitleBgImg from "../../assets/images/page_title_bg_img.jpg";
 import { useResponsive } from "../../hooks/ResponsiveContext";
-import { Member, ProfessorType } from "../../assets/data/temp_professor";
+import { Member, ProfessorType } from "../../assets/data/temp/temp_professor";
 import altImg from "../../assets/images/alt_professor.jpg";
 
 // Member 인터페이스를 props로 받아오도록 설정

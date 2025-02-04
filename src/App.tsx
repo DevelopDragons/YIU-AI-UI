@@ -22,7 +22,7 @@ import NewsPage from "./pages/News/News";
 import NewsDetailPage from "./pages/News/NewsDetail";
 import { ResponsiveProvider } from "./hooks/ResponsiveContext";
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <ResponsiveProvider>
@@ -69,6 +69,6 @@ function App() {
       </ResponsiveProvider>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

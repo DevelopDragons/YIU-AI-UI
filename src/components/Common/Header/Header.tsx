@@ -91,6 +91,7 @@ const Header: React.FC<HeaderProps> = ({ handleDrawerToggle }) => {
             <DropdownMenu
               key={item.label}
               label={item.label}
+              link={item.link}
               subMenu={item.subMenu}
             />
           ))}
