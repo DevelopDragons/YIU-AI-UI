@@ -11,7 +11,7 @@ export interface SubMenuItem {
 
 export const navItems: NavItem[] = [
   {
-    label: "학부소개",
+    label: "소개",
     subMenu: [
       { label: "학부장 인사말", link: "/faculty/greetings" },
       { label: "교수 소개", link: "/faculty/professor" },
@@ -21,30 +21,44 @@ export const navItems: NavItem[] = [
     ],
   },
   {
-    label: "학부과정",
+    label: "학부",
+    link: "/undergraduate/intro",
     subMenu: [
-      { label: "전공 소개", link: "/course/intro" },
-      { label: "교과 안내", link: "/course/curriculum" },
-      { label: "융합전공/MD", link: "/course/convergence-major" },
-      { label: "졸업기준", link: "/course/graduation" },
+      { label: "소개", link: "/undergraduate/intro" },
+      { label: "교육과정", link: "/undergraduate/curriculum" },
+      { label: "융합전공/MD", link: "/undergraduate/convergence-md" },
+      { label: "졸업기준", link: "/undergraduate/graduation" },
     ],
+  },
+  // {
+  //   label: "학부과정",
+  //   subMenu: [
+  //     { label: "전공 소개", link: "/course/intro" },
+  //     { label: "교과 안내", link: "/course/curriculum" },
+  //     { label: "융합전공/MD", link: "/course/convergence-major" },
+  //     { label: "졸업기준", link: "/course/graduation" },
+  //   ],
+  // },
+  {
+    label: "대학원",
+    link: "/graduate",
+    subMenu: [],
   },
   {
     label: "교육/연구",
     subMenu: [
-      { label: "대학원 과정", link: "/research/graduate-school" },
-      { label: "연구실 소개", link: "/research/lab" },
-      { label: "MOU 기관", link: "/research/mou" },
+      { label: "연구실", link: "/research/lab" },
+      { label: "MOU기관", link: "/research/mou" },
     ],
   },
   {
-    label: "학부소식",
+    label: "소식",
     link: "/news",
     subMenu: [],
     // subMenu: [{ label: "학부소식", link: "/news" }],
   },
   {
-    label: "입학정보",
+    label: "입학",
     subMenu: [
       { label: "대학", link: "https://ipsi.yongin.ac.kr/index.do" },
       { label: "대학원", link: "https://graduate.yongin.ac.kr/" },

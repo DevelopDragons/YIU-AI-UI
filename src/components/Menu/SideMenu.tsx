@@ -18,7 +18,7 @@ const SideMenu: React.FC<{ menuItem: NavItem }> = ({ menuItem }) => {
       css={css({
         width: 250,
         backgroundColor: colors.gray.white,
-        paddingTop: 20,
+        // paddingTop: 50,
         zIndex: 1000,
         display: "flex",
         flexDirection: "column",
@@ -28,10 +28,14 @@ const SideMenu: React.FC<{ menuItem: NavItem }> = ({ menuItem }) => {
     >
       <div
         css={css({
+          width: 170,
           fontWeight: 600,
-          fontSize: 18,
+          fontSize: 20,
           color: colors.text.black,
           marginBottom: 10,
+          paddingBottom: 10,
+          paddingLeft: 10,
+          borderBottom: `2px solid ${colors.yiu.green}`,
         })}
       >
         {menuItem.label}
@@ -51,7 +55,8 @@ const SideMenu: React.FC<{ menuItem: NavItem }> = ({ menuItem }) => {
               backgroundColor: isActive
                 ? colors.gray.lightGray
                 : colors.gray.white,
-              fontWeight: isActive ? 700 : 400, // 활성화된 메뉴의 글씨 두께
+              fontSize: 16,
+              fontWeight: isActive ? 700 : 500, // 활성화된 메뉴의 글씨 두께
               ":hover": {
                 color: colors.yiu.green,
                 fontWeight: 700,

@@ -3,12 +3,12 @@ import { css } from "@emotion/react";
 import { colors } from "../../assets/styles/colors";
 import Title from "../../components/Text/Title";
 
-const ConvergenceMajorPage = (): React.ReactElement => {
+const GraduatePage = (): React.ReactElement => {
   return (
     <div>
-      <Title title="융합전공/마이크로디그리(MD)" />
+      <Title title="대학원 과정" />
     </div>
   );
 };
 
-export default ConvergenceMajorPage;
+export default GraduatePage;

@@ -24,7 +24,7 @@ const Research = (): React.ReactElement => {
         })}
       >
         {/* 사이드바 */}
-        {isNotMobile && <SideMenu menuItem={navItems[2]} />}
+        {isNotMobile && <SideMenu menuItem={navItems[3]} />}
 
         {/* 메인 콘텐츠 */}
         <div

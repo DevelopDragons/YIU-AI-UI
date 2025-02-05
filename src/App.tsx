@@ -11,16 +11,17 @@ import StudentCouncilPage from "./pages/StudentCouncil/StudentCouncil";
 import ContactPage from "./pages/Contact/Contact";
 import Course from "./pages/Menu/Course";
 import IntroPage from "./pages/Intro/Intro";
-import CurriculumPage from "./pages/Curriculum/Curriculum";
-import ConvergenceMajorPage from "./pages/ConvergenceMajor/ConvergenceMajor";
+import ConvergenceMajorPage from "./pages/ConvergenceMd/ConvergenceMd";
 import GraduationPage from "./pages/Graduation/Graduation";
-import Research from "./pages/Menu/Research";
-import GraduateSchoolPage from "./pages/GraduateSchool/GraduateSchool";
-import MOUPage from "./pages/MOU/MOU";
-import LabPage from "./pages/Lab/Lab";
 import NewsPage from "./pages/News/News";
 import NewsDetailPage from "./pages/News/NewsDetail";
 import { ResponsiveProvider } from "./hooks/ResponsiveContext";
+import MOUPage from "./pages/MOU/MOU";
+import LabPage from "./pages/Lab/Lab";
+import GraduatePage from "./pages/Graduate/Graduate";
+import UndergraduatePage from "./pages/Undergraduate/Undergraduate";
+import Research from "./pages/Menu/Research";
+import CurriculumPage from "./pages/Curriculum/Curriculum";
 
 const App = () => {
   return (
@@ -46,18 +47,16 @@ const App = () => {
               <Route path="contact" element={<ContactPage />} />
             </Route>
             {/* 학부 과정 */}
-            <Route path="/course" element={<Course />}>
+            <Route path="/undergraduate" element={<UndergraduatePage />}>
               <Route path="intro" element={<IntroPage />} />
               <Route path="curriculum" element={<CurriculumPage />} />
-              <Route
-                path="convergence-major"
-                element={<ConvergenceMajorPage />}
-              />
+              <Route path="convergence-md" element={<ConvergenceMajorPage />} />
               <Route path="graduation" element={<GraduationPage />} />
             </Route>
+            {/* 대학원 과정 */}
+            <Route path="/graduate" element={<GraduatePage />} />
             {/* 교육/연구 */}
             <Route path="/research" element={<Research />}>
-              <Route path="graduate-school" element={<GraduateSchoolPage />} />
               <Route path="lab" element={<LabPage />} />
               <Route path="mou" element={<MOUPage />} />
             </Route>
