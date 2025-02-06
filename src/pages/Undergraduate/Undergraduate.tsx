@@ -30,7 +30,7 @@ const UndergraduatePage = (): React.ReactElement => {
 
   return (
     <div>
-      <PageHeader backgroundImage={TitleBgImg} title={"교육/연구"} />
+      <PageHeader backgroundImage={TitleBgImg} title={"학부"} />
       <div
         css={css({
           display: "flex",
@@ -51,16 +51,16 @@ const UndergraduatePage = (): React.ReactElement => {
             indicatorColor="secondary" // 기본 옵션 (무시됨)
             aria-label="학부 탭"
             sx={{
-              fontSize: 25,
+              // fontSize: 25,
               "& .MuiTabs-indicator": {
                 backgroundColor: colors.yiu.green, // 원하는 색상 적용 (예: 주황색)
               },
               "& .MuiTab-root": {
                 color: colors.text.black,
                 fontWeight: 600,
-                fontSize: 18,
+                fontSize: 22,
               }, // 기본 상태
-              "& .Mui-selected": { color: colors.yiu.green, fontWeight: 800 }, // 선택된 탭 색상
+              "& .Mui-selected": { color: colors.yiu.green, fontWeight: 900 }, // 선택된 탭 색상
             }}
           >
             {subMenu.map((item) => (

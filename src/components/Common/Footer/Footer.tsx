@@ -6,7 +6,7 @@ import { css } from "@emotion/react";
 import { colors } from "../../../assets/styles/colors";
 import YIU_emblem from "../../../assets/images/YIU_emblem.jpg";
 import { useNavigate } from "react-router-dom";
-import yiuAiInfo from "../../../assets/data/yiu_ai_info";
+import { yiuAiInfo } from "../../../assets/data/yiu_ai_info";
 import { useResponsive } from "../../../hooks/ResponsiveContext";
 
 const Footer: React.FC = () => {
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
             color: colors.yiu.green,
           })}
         >
-          용인대학교 | {yiuAiInfo.name_ko}
+          용인대학교 | {yiuAiInfo.name}
         </div>
         <div
           css={css({
@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
           {/* 주소 */}
           <div>{yiuAiInfo.address}</div>
           {/* 전화번호 | 이메일 | 학과 홈페이지 링크 */}
-          <div>{`${yiuAiInfo.tel} | ${yiuAiInfo.email} | ${yiuAiInfo.homepage}`}</div>
+          <div>{`${yiuAiInfo.tel} | ${yiuAiInfo.mail} | https://www.yongin.ac.kr`}</div>
         </div>
       </div>
     </div>

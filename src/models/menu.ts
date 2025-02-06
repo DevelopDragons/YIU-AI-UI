@@ -12,6 +12,7 @@ export interface SubMenuItem {
 export const navItems: NavItem[] = [
   {
     label: "소개",
+    link: "/faculty/greetings",
     subMenu: [
       { label: "학부장 인사말", link: "/faculty/greetings" },
       { label: "교수 소개", link: "/faculty/professor" },
@@ -46,6 +47,7 @@ export const navItems: NavItem[] = [
   },
   {
     label: "교육/연구",
+    link: "/research/lab",
     subMenu: [
       { label: "연구실", link: "/research/lab" },
       { label: "MOU기관", link: "/research/mou" },

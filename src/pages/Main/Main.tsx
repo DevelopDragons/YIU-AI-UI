@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 import { colors } from "../../assets/styles/colors";
 import main_background_img from "../../assets/images/main_background_img.jpeg";
 import yiuInfo from "../../assets/data/yiu_info";
-import yiuAiInfo from "../../assets/data/yiu_ai_info";
+import { yiuAiInfo } from "../../assets/data/yiu_ai_info";
 import { useResponsive } from "../../hooks/ResponsiveContext";
 
 const MainPage = (): React.ReactElement => {
@@ -52,7 +52,7 @@ const MainPage = (): React.ReactElement => {
               fontWeight: 700,
             })}
           >
-            {yiuAiInfo.name_en}
+            {yiuAiInfo.engName}
           </div>
         </div>
       </div>

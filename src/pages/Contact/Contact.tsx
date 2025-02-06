@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 import { colors } from "../../assets/styles/colors";
 import Title from "../../components/Text/Title";
 import H10 from "../../components/Gap/H10";
-import yiuAiInfo from "../../assets/data/yiu_ai_info";
+import { yiuAiInfo } from "../../assets/data/yiu_ai_info";
 import EmailIcon from "@mui/icons-material/Email";
 
 const ContactPage = (): React.ReactElement => {
@@ -40,7 +40,7 @@ const ContactPage = (): React.ReactElement => {
         >
           <span>{yiuAiInfo.address}</span>
           <span>{yiuAiInfo.tel}</span>
-          <span>{yiuAiInfo.email}</span>
+          <span>{yiuAiInfo.mail}</span>
         </div>
       </div>
       <div

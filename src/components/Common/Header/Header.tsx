@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-import yiuAiInfo from "../../../assets/data/yiu_ai_info";
+import { yiuAiInfo } from "../../../assets/data/yiu_ai_info";
 import YIU_logo from "../../../assets/images/YIU_logo.png";
 import { useNavigate } from "react-router-dom";
 import { colors } from "../../../assets/styles/colors";
@@ -82,7 +82,7 @@ const Header: React.FC<HeaderProps> = ({ handleDrawerToggle }) => {
               color: colors.gray.black,
             })}
           >
-            {`${yiuInfo.name_ko} ${yiuAiInfo.name_ko}`}
+            {`${yiuInfo.name_ko} ${yiuAiInfo.name}`}
           </div>
         </Box>
         {/* 메뉴 */}

@@ -2,7 +2,7 @@
 import { css } from "@emotion/react";
 import { colors } from "../../assets/styles/colors";
 import Title from "../../components/Text/Title";
-import yiuAiInfo from "../../assets/data/yiu_ai_info";
+import { yiuAiInfo } from "../../assets/data/yiu_ai_info";
 import altImg from "../../assets/images/aihakbu_img1.jpeg";
 
 const GreetingPage = (): React.ReactElement => {
@@ -24,7 +24,7 @@ const GreetingPage = (): React.ReactElement => {
           })}
         >
           <span css={css({ fontWeight: 800, color: colors.yiu.green })}>
-            {`용인대학교 ${yiuAiInfo.name_ko} `}
+            {`용인대학교 ${yiuAiInfo.name} `}
           </span>
           <span>
             홈페이지에
@@ -49,7 +49,7 @@ const GreetingPage = (): React.ReactElement => {
             lineHeight: 1.5,
           })}
         >
-          {yiuAiInfo.greetings}
+          {yiuAiInfo.greeting}
         </div>
         <div
           css={css({
