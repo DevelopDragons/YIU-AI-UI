@@ -18,7 +18,7 @@ const Course = (): React.ReactElement => {
         css={css({
           display: "flex", // Flexbox를 사용하여 사이드바와 메인 콘텐츠를 나눔
           padding: "5%",
-          maxWidth: 1200,
+          maxWidth: 1400,
           margin: "0 auto",
           // minHeight: "100vh", // 화면을 꽉 채우도록 설정
         })}

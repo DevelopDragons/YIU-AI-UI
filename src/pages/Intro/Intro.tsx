@@ -40,8 +40,10 @@ const IntroPage = (): React.ReactElement => {
       <img
         src={ai_info.iamge}
         // src={boss}
+        alt="학부 대표이미지"
         css={css({
           width: "100%",
+          minHeight: 300,
           objectFit: "contain",
           border: border1,
           alignSelf: "center",

@@ -2,7 +2,14 @@
 import { css } from "@emotion/react";
 import { colors } from "../../assets/styles/colors";
 import Title from "../../components/Text/Title";
-import { Accordion, AccordionActions, AccordionDetails, AccordionSummary, Button, Typography } from '@mui/material';
+import {
+  Accordion,
+  AccordionActions,
+  AccordionDetails,
+  AccordionSummary,
+  Button,
+  Typography,
+} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const GraduationPage = (): React.ReactElement => {

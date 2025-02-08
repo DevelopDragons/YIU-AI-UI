@@ -16,7 +16,7 @@ const SideMenu: React.FC<{ menuItem: NavItem }> = ({ menuItem }) => {
   return (
     <div
       css={css({
-        width: 250,
+        width: 300,
         backgroundColor: colors.gray.white,
         // paddingTop: 50,
         zIndex: 1000,
@@ -29,13 +29,14 @@ const SideMenu: React.FC<{ menuItem: NavItem }> = ({ menuItem }) => {
       <div
         css={css({
           width: 170,
-          fontWeight: 600,
-          fontSize: 20,
+          fontWeight: 700,
+          fontSize: 22,
           color: colors.text.black,
           marginBottom: 10,
-          paddingBottom: 10,
+          paddingBottom: 15,
           paddingLeft: 10,
-          borderBottom: `2px solid ${colors.yiu.green}`,
+          textAlign: "center",
+          borderBottom: `3px solid ${colors.yiu.green}`,
         })}
       >
         {menuItem.label}
@@ -47,9 +48,9 @@ const SideMenu: React.FC<{ menuItem: NavItem }> = ({ menuItem }) => {
           <div
             key={`${subItem.label}-${index}`}
             css={css({
-              width: 150,
+              width: 160,
               padding: 10,
-              marginLeft: 10,
+              // marginLeft: 10,
               cursor: "pointer",
               color: isActive ? colors.yiu.green : colors.text.black, // 활성화된 메뉴의 색상
               backgroundColor: isActive
@@ -57,6 +58,7 @@ const SideMenu: React.FC<{ menuItem: NavItem }> = ({ menuItem }) => {
                 : colors.gray.white,
               fontSize: 16,
               fontWeight: isActive ? 700 : 500, // 활성화된 메뉴의 글씨 두께
+              // borderBottom: `1px solid ${colors.gray.mediumBrightGray}`,
               ":hover": {
                 color: colors.yiu.green,
                 fontWeight: 700,
