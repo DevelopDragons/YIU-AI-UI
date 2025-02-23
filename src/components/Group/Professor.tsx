@@ -3,13 +3,13 @@ import { css } from "@emotion/react";
 import { colors } from "../../assets/styles/colors";
 import TitleBgImg from "../../assets/images/page_title_bg_img.jpg";
 import { useResponsive } from "../../hooks/ResponsiveContext";
-import { Member, ProfessorType } from "../../assets/data/temp/temp_professor";
 import altUser from "../../assets/images/user.webp";
 import boss from "../../assets/images/kjlee.jpg";
 import EmailIcon from "@mui/icons-material/Email";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import IconTextGroup from "../Group/IconTextGroup";
 import H10 from "../Gap/H10";
+import { Member, ProfessorType } from "../../models/member";
 
 // Member 인터페이스를 props로 받아오도록 설정
 interface ProfessorProps {
