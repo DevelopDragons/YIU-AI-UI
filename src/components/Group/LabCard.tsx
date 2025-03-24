@@ -47,7 +47,7 @@ const LabCard = ({ item }: LabProps): React.ReactElement => {
             window.open(item.labLink, "_blank", "noopener, noreferrer")
           }
           css={{
-            maxWidth: 75,
+            width: 75,
             maxHeight: 75,
             objectFit: "contain",
             borderRadius: 5,

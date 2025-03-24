@@ -147,12 +147,12 @@ export default StudentCouncilPage;
 const containerStyle = css`
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: start;
 `;
 
 const tableStyle = css`
   width: 100%;
-  max-width: 900px;
+  /* max-width: 900px; */
   border-collapse: collapse;
   border-top: 2px solid #444;
   border-bottom: 2px solid #444;

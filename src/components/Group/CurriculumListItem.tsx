@@ -16,16 +16,50 @@ import { useResponsive } from "../../hooks/ResponsiveContext";
 
 interface CurriculumListItemProps {
   item: SubjectProps;
+  full?: boolean;
 }
 
 const CurriculumListItem = ({
   item,
+  full = true,
 }: CurriculumListItemProps): React.ReactElement => {
   // 반응형 화면
   const { isMobile, isNotMobile, isTablet, isDesktopOrLaptop } =
     useResponsive();
 
   const [open, setOpen] = useState(false);
+
+  if (!full)
+    return (
+      <>
+        <TableRow css={rowStyle} onClick={() => setOpen(!open)}>
+          {!isMobile && (
+            <TableCell align="center" css={cellStyle}>
+              {item.code}
+            </TableCell>
+          )}
+          <TableCell align="center" css={cellStyle}>
+            {item.subject}
+          </TableCell>
+          <TableCell align="center" css={cellStyle}>
+            {item.classification}
+          </TableCell>
+          {!isMobile && (
+            <TableCell align="center" css={cellStyle}>
+              {item.credit}
+            </TableCell>
+          )}
+        </TableRow>
+        {/* {item.contents} */}
+        <TableRow css={css({ border: "none" })}>
+          <TableCell colSpan={8} css={css({ padding: 0, border: "none" })}>
+            <Collapse in={open} timeout="auto">
+              <div css={cellContentsStyle}>{item.contents}</div>
+            </Collapse>
+          </TableCell>
+        </TableRow>
+      </>
+    );
 
   return (
     <>
