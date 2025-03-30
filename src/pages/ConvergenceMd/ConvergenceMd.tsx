@@ -69,10 +69,10 @@ const ConvergenceMdPage = (): React.ReactElement => {
           "& .MuiTab-root": {
             fontSize: isMobile ? 18 : 20,
             fontWeight: 600,
-            color: "#BDBDBD",
+            color: "#BDBDBD", // 비활성화된 탭 색상
           },
           "& .Mui-selected": {
-            color: colors.yiu.green,
+            color: `${colors.yiu.green} !important`, // 활성화된 탭 색상
           },
         }}
         css={css({ marginTop: 50 })}

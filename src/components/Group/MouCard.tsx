@@ -39,7 +39,7 @@ const MouCard = ({ item }: MouProps): React.ReactElement => {
           src={item.image}
           css={{
             maxWidth: "100%",
-            maxHeight: "100%",
+            maxHeight: 120,
             objectFit: "contain",
           }}
         />

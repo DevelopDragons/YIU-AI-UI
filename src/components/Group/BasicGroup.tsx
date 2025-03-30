@@ -7,7 +7,7 @@ import altImg from "../../assets/images/alt_professor.jpg";
 
 interface BasicGroupProps {
   title: string;
-  contents: string;
+  contents?: string;
 }
 
 const BasicGroup = ({
@@ -39,15 +39,17 @@ const BasicGroup = ({
       >
         {title}
       </div>
-      <div
-        css={css({
-          fontWeight: 500,
-          fontSize: 16,
-          color: colors.text.black,
-        })}
-      >
-        {contents}
-      </div>
+      {contents && (
+        <div
+          css={css({
+            fontWeight: 500,
+            fontSize: 16,
+            color: colors.text.black,
+          })}
+        >
+          {contents}
+        </div>
+      )}
     </div>
   );
 };
