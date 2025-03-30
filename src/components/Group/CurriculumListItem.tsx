@@ -1,14 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState } from "react";
 import { css } from "@emotion/react";
-import {
-  TableRow,
-  TableCell,
-  Collapse,
-  Box,
-  Typography,
-  Accordion,
-} from "@mui/material";
+import { TableRow, TableCell, Collapse } from "@mui/material";
 import { SubjectProps } from "../../models/subject";
 import { colors } from "../../assets/styles/colors";
 import { border1 } from "../../assets/styles/borderLine";
