@@ -1,6 +1,7 @@
 export const colors = {
   yiu: {
     green: "#005870",
+    green_dark: "#003443",
     green_mid: "#669aa9",
     green_light: "#ccdde2",
     lightBlue: "#84BBD3",

@@ -8,6 +8,7 @@ import YIU_emblem from "../../../assets/images/YIU_emblem.jpg";
 import { useNavigate } from "react-router-dom";
 import { yiuAiInfo } from "../../../assets/data/yiu_ai_info";
 import { useResponsive } from "../../../hooks/ResponsiveContext";
+import { border1 } from "../../../assets/styles/borderLine";
 
 const Footer: React.FC = () => {
   const { isMobile, isNotMobile, isTablet, isDesktopOrLaptop } =
@@ -27,6 +28,7 @@ const Footer: React.FC = () => {
         paddingBottom: 50,
         paddingLeft: isMobile ? 0 : "10%",
         gap: 30,
+        borderTop: border1,
       })}
     >
       <img
