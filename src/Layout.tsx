@@ -1,9 +1,12 @@
+/** @jsxImportSource @emotion/react */
 import { useLocation } from "react-router-dom";
 import Header from "./components/Common/Header/Header";
-import React from "react";
+import React, { useState } from "react";
 import Footer from "./components/Common/Footer/Footer";
+import { css } from "@emotion/react";
 import {
   Box,
+  Collapse,
   Divider,
   Drawer,
   List,
@@ -12,7 +15,13 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { useResponsive } from "./hooks/ResponsiveContext";
+import { navItems } from "./models/menu";
+import { colors } from "./assets/styles/colors";
+import { border1 } from "./assets/styles/borderLine";
+import CloseIcon from "@mui/icons-material/Close";
 
 interface LayoutProps {
   className?: string;
@@ -33,22 +42,115 @@ const Layout: React.FC<LayoutProps> = ({ className, children }) => {
     setMobileOpen((prevState) => !prevState);
   };
 
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const handleClick = (index: number) => {
+    const item = navItems[index];
+    if (!item.subMenu.length && item.link) {
+      window.location.href = item.link; // 또는 react-router로 이동하려면 useNavigate 사용
+      return;
+    }
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   const drawerWidth = 240;
-  const navItems = ["Home", "About", "Contact"];
+
+  React.useEffect(() => {
+    if (location.pathname === "/") {
+      setOpenIndex(null);
+      return;
+    }
+    const indexToOpen = navItems.findIndex((item) => {
+      if (item.link && location.pathname === item.link) return true;
+      return item.subMenu.some((sub) => sub.link === location.pathname);
+    });
+
+    if (indexToOpen !== -1) {
+      setOpenIndex(indexToOpen);
+    }
+  }, [location.pathname]);
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
+    <Box
+      sx={{
+        width: drawerWidth,
+      }}
+    >
+      <div
+        css={css({
+          minHeight: 50,
+          backgroundColor: colors.yiu.green,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          color: "white",
+          fontWeight: "bold",
+          fontSize: "1.25rem",
+          padding: 15,
+        })}
+      >
+        <div>AI융합학부</div>
+        <div onClick={handleDrawerToggle} css={css({ cursor: "pointer" })}>
+          <CloseIcon />
+        </div>
+        {/* AI융합학부 */}
+      </div>
       <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
+      <List disablePadding>
+        {navItems.map((item, index) => (
+          <div key={item.label}>
+            <ListItem disablePadding>
+              <ListItemButton
+                onClick={() => handleClick(index)}
+                sx={{
+                  textAlign: "left",
+                  px: 3,
+                  py: 2,
+                  backgroundColor:
+                    openIndex === index
+                      ? colors.gray.lightGray
+                      : colors.gray.white,
+                  borderBottom: border1,
+                  fontWeight: "bold",
+                  "&:hover": {
+                    borderLeft: `5px solid ${colors.yiu.green}`,
+                    backgroundColor: colors.gray.lightGray,
+                  },
+                }}
+              >
+                <ListItemText primary={item.label} />
+                {item.subMenu.length > 0 &&
+                  (openIndex === index ? (
+                    <ExpandLessIcon />
+                  ) : (
+                    <ExpandMoreIcon />
+                  ))}
+              </ListItemButton>
+            </ListItem>
+
+            <Collapse in={openIndex === index} timeout="auto" unmountOnExit>
+              <List disablePadding>
+                {item.subMenu.map((subItem) => (
+                  <ListItem key={subItem.label} disablePadding>
+                    <ListItemButton
+                      href={subItem.link}
+                      sx={{
+                        textAlign: "left",
+                        pl: 5,
+                        py: 1.5,
+                        color: colors.gray.lightBlack,
+                        "&:hover": {
+                          backgroundColor: colors.gray.lightGray,
+                        },
+                      }}
+                    >
+                      <ListItemText primary={subItem.label} />
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+              </List>
+            </Collapse>
+          </div>
         ))}
       </List>
     </Box>

@@ -13,7 +13,7 @@ const Faculty = (): React.ReactElement => {
     useResponsive();
   return (
     <div>
-      <PageHeader backgroundImage={TitleBgImg} title={"소개"} />
+      <PageHeader backgroundImage={TitleBgImg} title={"학부소개"} />
       <div
         css={css({
           display: "flex", // Flexbox를 사용하여 사이드바와 메인 콘텐츠를 나눔

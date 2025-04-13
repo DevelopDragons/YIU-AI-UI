@@ -23,7 +23,7 @@ const NewsListItem = ({
     <div
       css={css({
         display: "flex",
-        flexDirection: "row",
+        flexDirection: isMobile ? "column" : "row",
         justifyContent: "start",
         alignItems: "center",
         gap: 30,
