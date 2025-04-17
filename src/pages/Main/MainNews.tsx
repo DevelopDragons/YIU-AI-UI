@@ -6,11 +6,22 @@ import MainSectionHeader from "../../components/Group/MainSectionHeader";
 import { temp_news } from "../../assets/data/temp/temp_news";
 import { border1 } from "../../assets/styles/borderLine";
 import dayjs from "dayjs";
+import { useNavigate } from "react-router-dom";
+import { useResponsive } from "../../hooks/ResponsiveContext";
+import { useRecoilState } from "recoil";
+import { SelectedNewsAtom } from "../../recoil/notice";
 
 const CARD_MIN_WIDTH = 280;
 const CARD_GAP = 20;
 
 const MainNews = (): React.ReactElement => {
+  const navigate = useNavigate();
+
+  const { isMobile, isNotMobile, isTablet, isDesktopOrLaptop } =
+    useResponsive();
+
+  const [selectedNews, setSelectedNews] = useRecoilState(SelectedNewsAtom);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const [visibleCardCount, setVisibleCardCount] = useState(1);
 
@@ -66,10 +77,16 @@ const MainNews = (): React.ReactElement => {
               flexDirection: "column",
               gap: 20,
               boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+              cursor: "pointer",
             })}
+            onClick={() => {
+              setSelectedNews(item);
+              navigate("/news"); // 먼저 스택에 /news 삽입
+              navigate(`/news/${item.id}`);
+            }}
           >
             <div css={css({ fontWeight: 650, color: colors.yiu.green })}>
-              공지사항
+              학부 뉴스
             </div>
             <div css={css({ fontSize: 20, fontWeight: 700 })}>{item.title}</div>
             <div
