@@ -45,7 +45,7 @@ const MouCard = ({
         }}
       >
         <img
-          src={item.image}
+          src={`${process.env.REACT_APP_URL}/files/show?id=${item.image?.[0]?.id}`}
           css={{
             maxWidth: "100%",
             maxHeight: 120,
