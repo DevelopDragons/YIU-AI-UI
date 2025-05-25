@@ -4,8 +4,29 @@ import { colors } from "../../assets/styles/colors";
 import Title from "../../components/Text/Title";
 import { yiuAiInfo } from "../../assets/data/yiu_ai_info";
 import altImg from "../../assets/images/aihakbu_img1.jpeg";
+import { useQuery } from "@tanstack/react-query";
+import { Greeting } from "../../models/greeting";
+import { defaultAPI } from "../../services";
+import LoadingSpin from "../../components/Spin/LoadingSpin";
+import GetDataErrorResultView from "../../components/Result/GetDataError";
 
 const GreetingPage = (): React.ReactElement => {
+  // 학부장 인사말 데이터 가져오기
+  const {
+    data: greeting,
+    isLoading,
+    error,
+  } = useQuery<Greeting[]>({
+    queryKey: ["greetiing"],
+    queryFn: async () => {
+      const res = await defaultAPI.get(`/greeting`);
+      return res.data;
+    }
+  })
+
+  if (isLoading) return <LoadingSpin />;
+  if (error) return <GetDataErrorResultView />
+
   return (
     <div>
       <Title title="학부장 인사말" />
@@ -49,7 +70,7 @@ const GreetingPage = (): React.ReactElement => {
             lineHeight: 1.5,
           })}
         >
-          {yiuAiInfo.greeting}
+          {greeting?.[0].greeting}
         </div>
         <div
           css={css({
@@ -66,7 +87,7 @@ const GreetingPage = (): React.ReactElement => {
         >
           <span>AI융합학부 학부장</span>
           <span css={css({ fontWeight: 800, color: colors.yiu.green })}>
-            이경재
+            {greeting?.[0].name}
           </span>
         </div>
       </div>
