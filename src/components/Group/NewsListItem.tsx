@@ -39,7 +39,8 @@ const NewsListItem = ({
     >
       {/* 썸네일 */}
       <img
-        src={item.thumbnail}
+        // src={item.thumbnails}
+        src={`${process.env.REACT_APP_URL}/files/show?id=${item.thumbnails?.[0]?.id}`}
         // src={boss}
         css={css({
           width: 300,
@@ -69,7 +70,7 @@ const NewsListItem = ({
           {item.title}
         </div>
         {/* 날짜 */}
-        <div>{dayjs(item.createdAt).format("YYYY-MM-DD")}</div>
+        <div>{dayjs(item.createAt).format("YYYY-MM-DD")}</div>
         {/* 단신 */}
         <div css={css({ marginTop: 15 })}>{item.shorts}</div>
       </div>

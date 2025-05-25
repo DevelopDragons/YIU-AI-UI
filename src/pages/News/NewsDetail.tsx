@@ -56,12 +56,12 @@ const NewsDetailPage = (): React.ReactElement => {
         >
           <CalendarMonthIcon fontSize="small" />
           <span>
-            {dayjs(selectedNews.createdAt).format("YYYY-MM-DD hh:mm:ss")}
+            {dayjs(selectedNews.createAt).format("YYYY-MM-DD hh:mm:ss")}
           </span>
         </div>
         {/* 썸네일 */}
         <img
-          src={selectedNews.thumbnail}
+          src={`${process.env.REACT_APP_URL}/files/show?id=${selectedNews.thumbnails?.[0]?.id}`}
           // src={boss}
           css={css({
             width: "100%",

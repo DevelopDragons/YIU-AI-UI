@@ -3,13 +3,18 @@ import { useEffect, useRef, useState } from "react";
 import { css } from "@emotion/react";
 import { colors } from "../../assets/styles/colors";
 import MainSectionHeader from "../../components/Group/MainSectionHeader";
-import { temp_news } from "../../assets/data/temp/temp_news";
 import { border1 } from "../../assets/styles/borderLine";
 import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
 import { useResponsive } from "../../hooks/ResponsiveContext";
 import { useRecoilState } from "recoil";
 import { SelectedNewsAtom } from "../../recoil/notice";
+
+import { useQuery } from "@tanstack/react-query";
+import { defaultAPI } from "../../services";
+import LoadingSpin from "../../components/Spin/LoadingSpin";
+import GetDataErrorResultView from "../../components/Result/GetDataError";
+import { News } from "../../models/news";
 
 const CARD_MIN_WIDTH = 280;
 const CARD_GAP = 20;
@@ -41,6 +46,22 @@ const MainNews = (): React.ReactElement => {
     return () => window.removeEventListener("resize", updateCardCount);
   }, []);
 
+  // 학과 뉴스 데이터 가져오기
+  const {
+    data: news,
+    isLoading,
+    error,
+  } = useQuery<News[]>({
+    queryKey: ["news"],
+    queryFn: async () => {
+      const res = await defaultAPI.get(`/news`);
+      return res.data;
+    }
+  });
+
+  if (isLoading) return <LoadingSpin />;
+  if (error) return <GetDataErrorResultView />
+
   return (
     <div
       css={css({
@@ -64,7 +85,7 @@ const MainNews = (): React.ReactElement => {
           gap: CARD_GAP,
         })}
       >
-        {temp_news.slice(0, visibleCardCount).map((item, index) => (
+        {news!.slice(0, visibleCardCount).map((item, index) => (
           <div
             key={index}
             css={css({
@@ -111,7 +132,7 @@ const MainNews = (): React.ReactElement => {
                 fontWeight: 600,
               })}
             >
-              {dayjs(item.createdAt).format("YYYY-MM-DD")}
+              {dayjs(item.createAt).format("YYYY-MM-DD")}
             </div>
           </div>
         ))}
