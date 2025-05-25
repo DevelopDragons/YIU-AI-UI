@@ -27,7 +27,7 @@ const AssistantProfessor = ({ item }: ProfessorProps): React.ReactElement => {
       })}
     >
       <img
-        src={item.image.length == 0 ? altImg : item.image}
+        src={item.image.length == 0 ? altImg : `${process.env.REACT_APP_URL}/files/show?id=${item.image?.[0]?.id}`}
         // src={boss}
         css={css({
           width: 180,

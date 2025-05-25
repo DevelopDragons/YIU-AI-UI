@@ -42,7 +42,7 @@ const LabCard = ({ item }: LabProps): React.ReactElement => {
         })}
       >
         <img
-          src={item.labImage.length > 0 ? item.labImage : altLabImage}
+          src={item.labImage.length > 0 ? `${process.env.REACT_APP_URL}/files/show?id=${item.image?.[0]?.id}` : altLabImage}
           onClick={() =>
             window.open(item.labLink, "_blank", "noopener, noreferrer")
           }

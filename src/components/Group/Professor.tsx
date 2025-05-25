@@ -4,7 +4,6 @@ import { colors } from "../../assets/styles/colors";
 import TitleBgImg from "../../assets/images/page_title_bg_img.jpg";
 import { useResponsive } from "../../hooks/ResponsiveContext";
 import altUser from "../../assets/images/user.webp";
-import boss from "../../assets/images/kjlee.jpg";
 import EmailIcon from "@mui/icons-material/Email";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import IconTextGroup from "../Group/IconTextGroup";
@@ -21,6 +20,15 @@ const Professor = ({ item }: ProfessorProps): React.ReactElement => {
   const { isMobile, isNotMobile, isTablet, isDesktopOrLaptop } =
     useResponsive();
 
+  // 교수 타입별 매핑 객체
+  const professorTypeTextMap: { [key in ProfessorType | string]: string } = {
+    FULL_TIME: "전임교수",
+    ADJUNCT: "겸임교수",
+    INVITED: "초빙교수",
+    VISITING: "객원교수",
+    RETIRED: "명예교수",
+  };
+
   return (
     <div
       css={css({
@@ -31,8 +39,8 @@ const Professor = ({ item }: ProfessorProps): React.ReactElement => {
       })}
     >
       <img
-        // src={item.image.length == 0 ? altUser : item.image}
-        src={boss}
+        src={item.image.length == 0 ? altUser : `${process.env.REACT_APP_URL}/files/show?id=${item.image?.[0]?.id}`}
+        // src={boss}
         css={css({
           width: 180,
           height: 230,
@@ -67,7 +75,7 @@ const Professor = ({ item }: ProfessorProps): React.ReactElement => {
             color: colors.gray.gray,
           })}
         >
-          {item.type}
+          {professorTypeTextMap[item.type ?? ""] || "-"}
         </div>
         <H10 />
         {/* 이메일 */}
@@ -76,13 +84,13 @@ const Professor = ({ item }: ProfessorProps): React.ReactElement => {
           title={item.mail}
         />
         {/* 전화번호 */}
-        {item.type == ProfessorType.FULLTIME && (
+        {item.type == ProfessorType.FULL_TIME && (
           <IconTextGroup
             icon={<LocalPhoneIcon fontSize="small" />}
             title={item.tel}
           />
         )}
-        {item.type != ProfessorType.FULLTIME &&
+        {item.type != ProfessorType.FULL_TIME &&
           item.type != ProfessorType.RETIRED && <div>{item.description}</div>}
         {/* 연구실 */}
         {item.type != ProfessorType.RETIRED && (
