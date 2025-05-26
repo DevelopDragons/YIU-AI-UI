@@ -8,8 +8,10 @@ import { useResponsive } from "../../hooks/ResponsiveContext";
 import { fullTimeMembers } from "../../assets/data/temp/temp_professor";
 import LabCard from "../../components/Group/LabCard";
 import { useQuery } from "@tanstack/react-query";
-import { Member } from "../../models/member";
+import { Member, MemberRole, ProfessorType } from "../../models/member";
 import { defaultAPI } from "../../services";
+import LoadingSpin from "../../components/Spin/LoadingSpin";
+import GetDataErrorResultView from "../../components/Result/GetDataError";
 
 const LabPage = (): React.ReactElement => {
   const { isMobile, isNotMobile, isTablet, isDesktopOrLaptop } =
@@ -28,6 +30,27 @@ const LabPage = (): React.ReactElement => {
   //     return res.data;
   //   },
   // });
+
+  // 교수 데이터 가져오기
+  const {
+    data: professor,
+    isLoading,
+    error,
+  } = useQuery<Member[]>({
+    queryKey: ["professor"],
+    queryFn: async () => {
+      const res = await defaultAPI.get(`/member`);
+      return res.data.filter((member: Member) => member.role === MemberRole.PROFESSOR)
+    }
+  })
+
+  if (isLoading) return <LoadingSpin />;
+  if (error) return <GetDataErrorResultView />
+
+  // 교수 데이터 중 타입이 FULL_TIME 인 교수 필터링
+  const fullTimeMembers = professor?.filter(
+    (item) => item.type === ProfessorType.FULL_TIME
+  ) || [];
 
   return (
     <div>
