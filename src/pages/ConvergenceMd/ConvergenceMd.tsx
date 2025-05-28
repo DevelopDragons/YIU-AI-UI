@@ -16,13 +16,16 @@ import {
 import { useState, useEffect } from "react";
 import { MicroDegreeCategory } from "../../models/enum";
 import { MD } from "../../models/md";
-import { temp_md, temp_convergence } from "../../assets/data/temp/temp_md";
 import Title from "../../components/Text/Title";
 import { colors } from "../../assets/styles/colors";
 import { SubjectProps } from "../../models/subject";
 import { border1 } from "../../assets/styles/borderLine";
 import CurriculumListItem from "../../components/Group/CurriculumListItem";
 import { useResponsive } from "../../hooks/ResponsiveContext";
+import { useQuery } from "@tanstack/react-query";
+import { defaultAPI } from "../../services";
+import LoadingSpin from "../../components/Spin/LoadingSpin";
+import GetDataErrorResultView from "../../components/Result/GetDataError";
 
 const ConvergenceMdPage = (): React.ReactElement => {
   // 반응형 화면
@@ -31,6 +34,15 @@ const ConvergenceMdPage = (): React.ReactElement => {
 
   const [tabValue, setTabValue] = useState(0);
   const [selectedMD, setSelectedMD] = useState<MD | null>(null);
+
+  const getTabData = () => {
+    if (tabValue === 0) {
+      return convergenceAndMD?.filter(
+        (item) => item.category === MicroDegreeCategory.Convergence
+      ) ?? [];
+    }
+    return convergenceAndMD?.filter((item) => item.category === MicroDegreeCategory.MD) ?? [];
+  };
 
   useEffect(() => {
     const initialData = getTabData()[0] || null;
@@ -45,14 +57,22 @@ const ConvergenceMdPage = (): React.ReactElement => {
     setSelectedMD(md);
   };
 
-  const getTabData = () => {
-    if (tabValue === 0) {
-      return temp_convergence.filter(
-        (item) => item.category === MicroDegreeCategory.Convergence
-      );
+  const {
+    data: convergenceAndMD,
+    isLoading,
+    error
+  } = useQuery<MD[]>({
+    queryKey: ["convergenceAndMD"],
+    queryFn: async () => {
+      const res = await defaultAPI.get(`/microdegree`);
+      return res.data;
     }
-    return temp_md.filter((item) => item.category === MicroDegreeCategory.MD);
-  };
+  })
+
+  if (isLoading) return <LoadingSpin />
+  if (error) return <GetDataErrorResultView />
+
+  
 
   return (
     <div>

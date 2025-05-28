@@ -44,7 +44,7 @@ const CurriculumListItem = ({
             {item.title}
           </TableCell>
           <TableCell align="center" css={cellStyle}>
-            {item.course}
+            {courseTypeTextMap[item.course ?? ""] || "-"}
           </TableCell>
           {!isMobile && (
             <TableCell align="center" css={cellStyle}>

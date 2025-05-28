@@ -58,7 +58,7 @@ export enum CourseCategory {
 // [MicroDegree] - 융합/MD 전공 구분(MicroDegreeCategory)
 export enum MicroDegreeCategory {
   MD = "MD",
-  Convergence = "Convergence",
+  Convergence = "CONVERGENCE",
 }
 
 // [MicroDegree] - 필수 여부(RequiredCategory)

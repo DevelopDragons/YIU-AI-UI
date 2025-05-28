@@ -1,16 +1,15 @@
 export interface SubjectProps {
   id: number;
-  subject: string;
-  classification: string;
+  title: string;
+  course: string;
   grade: number;
-  semester: number;
-  code: number;
+  term: number;
   credit: number;
+  description: string;
+  classes: string;
   theory: number;
   practice: number;
-  hidden: number;
-  required: number;
-  contents: string;
-  createdAt?: string;
-  updatedAt?: string;
+  code: string;
+  createdAt: string;
+  updatedAt: string;
 }
