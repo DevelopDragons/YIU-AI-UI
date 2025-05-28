@@ -16,12 +16,11 @@ import {
   Tabs,
 } from "@mui/material";
 import { border1 } from "../../assets/styles/borderLine";
-import { temp_curriculum } from "../../assets/data/temp/temp_curriculum";
 import CurriculumListItem from "./CurriculumListItem";
-import { SubjectProps } from "../../models/subject";
+import { Curriculum } from "../../models/curriculum";
 
 interface CurriculmTableProps {
-  data: SubjectProps[];
+  data?: Curriculum[];
 }
 
 const CurriculumTable = ({ data }: CurriculmTableProps): React.ReactElement => {
@@ -89,7 +88,7 @@ const CurriculumTable = ({ data }: CurriculmTableProps): React.ReactElement => {
             // boxShadow: "none",
           })}
         >
-          {data.map((row) => (
+          {data?.map((row) => (
             <CurriculumListItem key={row.id} item={row} />
           ))}
         </TableBody>

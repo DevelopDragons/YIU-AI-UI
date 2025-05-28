@@ -2,13 +2,14 @@
 import React, { useState } from "react";
 import { css } from "@emotion/react";
 import { TableRow, TableCell, Collapse } from "@mui/material";
-import { SubjectProps } from "../../models/subject";
 import { colors } from "../../assets/styles/colors";
 import { border1 } from "../../assets/styles/borderLine";
 import { useResponsive } from "../../hooks/ResponsiveContext";
+import { Curriculum } from "../../models/curriculum";
+import { CourseCategory } from "../../models/enum";
 
 interface CurriculumListItemProps {
-  item: SubjectProps;
+  item: Curriculum;
   full?: boolean;
 }
 
@@ -19,6 +20,14 @@ const CurriculumListItem = ({
   // 반응형 화면
   const { isMobile, isNotMobile, isTablet, isDesktopOrLaptop } =
     useResponsive();
+
+  // 이수구분 타입별 매칭 객체
+  const courseTypeTextMap: {
+    [key in CourseCategory | string]: string
+  } = {
+    PRO: "전공",
+    BASIC: "기초전공",
+  }
 
   const [open, setOpen] = useState(false);
 
@@ -32,10 +41,10 @@ const CurriculumListItem = ({
             </TableCell>
           )}
           <TableCell align="center" css={cellStyle}>
-            {item.subject}
+            {item.title}
           </TableCell>
           <TableCell align="center" css={cellStyle}>
-            {item.classification}
+            {item.course}
           </TableCell>
           {!isMobile && (
             <TableCell align="center" css={cellStyle}>
@@ -47,7 +56,7 @@ const CurriculumListItem = ({
         <TableRow css={css({ border: "none" })}>
           <TableCell colSpan={8} css={css({ padding: 0, border: "none" })}>
             <Collapse in={open} timeout="auto">
-              <div css={cellContentsStyle}>{item.contents}</div>
+              <div css={cellContentsStyle}>{item.description}</div>
             </Collapse>
           </TableCell>
         </TableRow>
@@ -58,13 +67,14 @@ const CurriculumListItem = ({
     <>
       <TableRow css={rowStyle} onClick={() => setOpen(!open)}>
         <TableCell align="center" css={cellStyle}>
-          {item.classification}
+          {/* {item.course} */}
+          {courseTypeTextMap[item.course ?? ""] || "-"}
         </TableCell>
         <TableCell align="center" css={cellStyle}>
           {item.grade}
         </TableCell>
         <TableCell align="center" css={cellStyle}>
-          {item.semester}
+          {item.term}
         </TableCell>
         {isDesktopOrLaptop ||
           (isTablet && (
@@ -73,7 +83,7 @@ const CurriculumListItem = ({
             </TableCell>
           ))}
         <TableCell align="center" css={cellStyle}>
-          {item.subject}
+          {item.title}
         </TableCell>
 
         {isDesktopOrLaptop && (
@@ -94,7 +104,7 @@ const CurriculumListItem = ({
       <TableRow css={css({ border: "none" })}>
         <TableCell colSpan={8} css={css({ padding: 0, border: "none" })}>
           <Collapse in={open} timeout="auto">
-            <div css={cellContentsStyle}>{item.contents}</div>
+            <div css={cellContentsStyle}>{item.description}</div>
           </Collapse>
         </TableCell>
       </TableRow>
