@@ -1,5 +1,6 @@
 import { SubjectProps } from "../../../models/subject";
 export const temp_curriculum: SubjectProps[] = [];
+// 모델 변경으로 인해 임시 데이터 주석 처리
 
 // export const temp_curriculum: SubjectProps[] = [
 //   {
