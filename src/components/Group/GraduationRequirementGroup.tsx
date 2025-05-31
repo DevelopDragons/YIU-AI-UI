@@ -54,7 +54,7 @@ const GraduationRequirementGroup = ({
         timeout="auto"
         css={css({ paddingBottom: open ? 50 : 0 })}
       >
-        <PDFViewer pdf={item.file} />
+        <PDFViewer pdf={`${process.env.REACT_APP_URL}/files/show?id=${item.file?.[0]?.id}`} />
       </Collapse>
     </>
   );
