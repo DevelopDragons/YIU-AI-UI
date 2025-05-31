@@ -36,7 +36,10 @@ const MainMOU = (): React.ReactElement => {
 
   return (
     <div>
-      <MainSectionHeader title={"MOU"} />
+      <MainSectionHeader
+        title={"MOU"}
+        desc={"AI융합학부와의 협약 기관을 확인해보세요."}
+      />
       <div css={carouselStyle(isMobile)}>
         <div css={carouselContent}>
           {mous?.map((mou, index) => (

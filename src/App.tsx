@@ -22,6 +22,8 @@ import GraduatePage from "./pages/Graduate/Graduate";
 import UndergraduatePage from "./pages/Undergraduate/Undergraduate";
 import Research from "./pages/Menu/Research";
 import CurriculumPage from "./pages/Curriculum/Curriculum";
+import AuthRoute from "./utils/AuthRoute";
+import NewsForm from "./pages/Admin/News/NewsForm";
 
 const App = () => {
   return (
@@ -63,6 +65,17 @@ const App = () => {
             {/* 학부 소식 */}
             <Route path="/news" element={<NewsPage />} />
             <Route path="/news/:id" element={<NewsDetailPage />} />
+            {/* 담당자 접근 가능<Admin> */}
+            {/* <Route
+              path="/news"
+              element={
+                <AuthRoute
+                  element={<NewsForm />}
+                  allowedRoles={[2, 3]}
+                />
+              }
+            /> */}
+            <Route path="/admin/news/form" element={<NewsForm />} />
           </Routes>
         </Layout>
       </ResponsiveProvider>

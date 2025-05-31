@@ -26,6 +26,22 @@ const NewsPage = (): React.ReactElement => {
 
   const [selectedNews, setSelectedNews] = useRecoilState(SelectedNewsAtom);
 
+  // // 학과뉴스 데이터 가져오기
+  // const {
+  //   data: dNews,
+  //   isLoading,
+  //   error,
+  // } = useQuery<News[]>({
+  //   queryKey: ["dNews"],
+  //   queryFn: async () => {
+  //     const res = await defaultAPI.get(`/news`);
+  //     return res.data;
+  //   },
+  // });
+
+  // if (isLoading) return <LoadingSpin />;
+  // if (error) return <ErrorResultView />;
+
 
   // 학과 뉴스 데이터 가져오기
   const {
